@@ -1,8 +1,13 @@
 import React from "react";
 
-export default () => (
-  <div>
-    <p>First Paragraph</p>
-    <p>Second Paragraph</p>
+const userOutputCss = {
+  paddingTop: "30px",
+  border: "1px solid"
+};
+
+export default props => (
+  <div style={userOutputCss}>
+    <p>First Paragraph - username is {props.userName} </p>
+    <p>Second Paragraph - username is {props.userName} </p>
   </div>
 );
