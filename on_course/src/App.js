@@ -14,6 +14,11 @@ class App extends Component {
         id: "id2",
         name: "Manu",
         age: 29
+      },
+      {
+        id: "id3",
+        name: "Stephanie",
+        age: 26
       }
     ],
     showPersons: false
@@ -47,7 +52,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: "white",
+      backgroundColor: "green",
+      color: "white",
       font: "inherit",
       border: "2px solid blue",
       padding: "8px",
@@ -72,13 +78,23 @@ class App extends Component {
           })}
         </div>
       );
+      style.backgroundColor = "red";
+    }
+
+    const classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push("red");
+    }
+    if (this.state.persons.length <= 1) {
+      classes.push("bold");
     }
 
     return (
       <div className="App">
         <h1>Hi! I'm a react App</h1>
+        <p className={classes.join(" ")}>This is really working!</p>
         <button style={style} onClick={this.togglePersonsHandler}>
-          Switch Name
+          Toggle Persons
         </button>
         {persons}
       </div>
