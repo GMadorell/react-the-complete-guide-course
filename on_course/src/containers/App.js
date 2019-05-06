@@ -22,7 +22,8 @@ class App extends Component {
         age: 26
       }
     ],
-    showPersons: false
+    showPersons: false,
+    authenticated: false
   };
 
   nameChangedHandler = (event, personId) => {
@@ -53,6 +54,10 @@ class App extends Component {
     this.setState({ showPersons: newShowPersons });
   };
 
+  authenticate = () => {
+    this.setState({ authenticated: true });
+  };
+
   render() {
     let persons = null;
 
@@ -63,6 +68,7 @@ class App extends Component {
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
             changed={this.nameChangedHandler}
+            authenticated={this.state.authenticated}
           />
         </div>
       );
@@ -75,6 +81,7 @@ class App extends Component {
           personsLength={this.state.persons.length}
           showPersons={this.state.showPersons}
           clicked={this.togglePersonsHandler}
+          login={this.authenticate}
         />
         {persons}
       </div>

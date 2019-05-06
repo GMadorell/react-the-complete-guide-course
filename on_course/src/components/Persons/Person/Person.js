@@ -12,6 +12,12 @@ class Person extends Component {
   render() {
     return (
       <div className={classes.Person}>
+        {this.props.authenticated ? (
+          <p>Authenticated!</p>
+        ) : (
+          <p>Not Authenticated :(</p>
+        )}
+
         <p onClick={this.props.click}>
           I'm {this.props.name} and I'm {this.props.age}
         </p>
