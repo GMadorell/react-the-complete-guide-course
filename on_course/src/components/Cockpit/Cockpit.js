@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 
 import classes from "./Cockpit.module.css";
 
@@ -6,6 +6,7 @@ import AuthContext from "../../context/auth-context";
 
 function Cockpit(props) {
   const toggleButtonRef = useRef(null); // null bc we can pass initial element if we want
+  const authContext = useContext(AuthContext);
 
   // By passing [] as second parameter, we pass list of prop changes that should affect
   // the hook. As it is empty array, no prop changes will make us call the hook.
@@ -38,9 +39,7 @@ function Cockpit(props) {
       >
         Toggle Persons
       </button>
-      <AuthContext.Consumer>
-        {context => <button onClick={context.login}>Login</button>}
-      </AuthContext.Consumer>
+      <button onClick={authContext.login}>Login</button>
     </div>
   );
 }
