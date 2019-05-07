@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from "react";
 
 import classes from "./Cockpit.module.css";
 
+import AuthContext from "../../context/auth-context";
+
 function Cockpit(props) {
   const toggleButtonRef = useRef(null); // null bc we can pass initial element if we want
 
@@ -36,7 +38,9 @@ function Cockpit(props) {
       >
         Toggle Persons
       </button>
-      <button onClick={props.login}>Login</button>
+      <AuthContext.Consumer>
+        {context => <button onClick={context.login}>Login</button>}
+      </AuthContext.Consumer>
     </div>
   );
 }
