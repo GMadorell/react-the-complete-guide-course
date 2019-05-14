@@ -12,7 +12,7 @@ class FullPost extends Component {
     if (this.props.id) {
       if (
         !this.state.loadedPost ||
-        (this.state.loadedPost && this.state.loadedPost !== this.props.id)
+        (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)
       ) {
         axios
           .get("http://jsonplaceholder.typicode.com/posts/" + this.props.id)
